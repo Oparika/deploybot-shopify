@@ -1,0 +1,170 @@
+/*============================================================================
+  #Product Reviews - Free Shopify App
+    - https://apps.shopify.com/product-reviews
+==============================================================================*/
+.shopify-product-reviews {
+  margin: 0;
+
+  .spr-header-title {
+    @extend h1;
+    display: none;
+  }
+
+  .spr-container {
+    padding: 0!important; // important needed to override in-page CSS from plugin
+    border: 0 none;
+  }
+
+  /*================ Summary Rating ================*/
+  .spr-summary {
+    border-bottom: 1px solid $colorBorder;
+    padding-bottom: $gutter / 2;
+    margin-bottom: $gutter;
+
+    @include at-query ($min, $large) {
+      float: left;
+      border: 1px solid $colorBorder;
+      width: 20%;
+      padding: $gutter / 3;
+
+      .spr-summary-starrating {
+        display: block;
+        margin: 0;
+      }
+    }
+  }
+
+  .spr-summary-caption {
+    font-size: 14px;
+
+    @include at-query ($min, $large) {
+      display: block;
+      border-bottom: 1px solid $colorBorder;
+      margin-bottom: $gutter / 3;
+      padding-bottom: $gutter / 3;
+    }
+  }
+
+  .spr-summary-actions-newreview {
+    &:after {
+      content: ' \203A';
+      clear: none;
+      display: inline;
+    }
+
+    @include at-query ($min, $large) {
+      float: none;
+    }
+  }
+
+  .spr-header:after {
+    clear: none;
+  }
+
+  /*================ Content ================*/
+  .spr-content {
+    @include at-query ($min, $large) {
+      float: left;
+      width: 80%;
+      padding-left: $gutter;
+    }
+  }
+
+  .spr-reviews {
+    margin: 0;
+  }
+
+  .spr-review {
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+
+    & + .spr-review {
+      margin-top: $gutter / 2;
+    }
+  }
+
+  .spr-review-content-body {
+    font-size: inherit;
+
+    br {
+      content: '';
+      display: block;
+      overflow: hidden;
+      height: 1px;
+    }
+  }
+
+  /*================ Individual Ratings ================*/
+  .spr-review-header {
+    @include clearfix;
+    margin-bottom: 0;
+  }
+
+  .spr-review-header-title {
+    margin-right: $gutter / 2;
+    font-family: $bodyFontStack;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 17px;
+    line-height: 20px; // may need adjusting if font sizes change
+    position: relative;
+    top: 2px;
+  }
+
+  @include at-query ($min, $large) {
+    .spr-review-header-starratings,
+    .spr-review-header-title {
+      display: inline;
+    }
+
+    .spr-review-header-title {
+      float: left;
+    }
+  }
+
+  .spr-review-header-starratings {
+    position: relative;
+    top: -2px;
+    margin: 0 ($gutter / 2) ($gutter / 3) 0;
+  }
+
+  .spr-review-header-byline {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    margin: 0;
+  }
+
+  .spr-review-reportreview {
+    display: none;
+  }
+
+  /*================ Review Form ================*/
+  .spr-form {
+    border: 0 none;
+    border-bottom: 1px solid $colorBorder;
+    margin: 0 0 $gutter;
+    padding: 0 0 $gutter;
+  }
+}
+
+/*================ Star Icons ================*/
+.spr-badge-starrating,
+.spr-icon {
+  color: $colorReviewStars;
+  font-size: 0.7em;
+}
+
+/*================ Review count ================*/
+.spr-badge-caption {
+  display: inline-block;
+  font-size: 13px;
+}
+
+/*================ Hide review badge if no reviews ================*/
+.grid-link {
+  .spr-badge[data-rating="0.0"] {
+    display: none;
+  }
+}

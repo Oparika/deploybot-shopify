@@ -1,0 +1,108 @@
+$siteWidth: 1030px;
+$gutter: 30px;
+$gridGutter: 30px;
+$radius: 3px;
+
+$small: 480px;
+$medium: 768px;
+$large: 769px;
+
+$viewportIncrement: 1px;
+$postSmall: $small + $viewportIncrement;
+$preMedium: $medium - $viewportIncrement;
+$preLarge: $large - $viewportIncrement;
+
+/*================ The following are dependencies of csswizardry grid ================*/
+$breakpoints: (
+  'small' '(max-width: #{$small})',
+  'medium' '(min-width: #{$postSmall}) and (max-width: #{$medium})',
+  'medium-down' '(max-width: #{$medium})',
+  'large' '(min-width: #{$large})'
+);
+$breakpoint-has-widths: ('small', 'medium', 'medium-down', 'large');
+$breakpoint-has-push:  ('medium', 'medium-down', 'large');
+$breakpoint-has-pull:  ('medium', 'medium-down', 'large');
+
+/*================ Color variables ================*/
+$colorPrimary: {{ settings.color_primary }};
+$colorSecondary: {{ settings.color_secondary }};
+
+// Button colors
+$colorBtnPrimary: $colorPrimary;
+$colorBtnPrimaryHover: lighten($colorBtnPrimary, 10%);
+$colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
+$colorBtnPrimaryText: {{ settings.color_button_primary_text }};
+
+$colorBtnSecondary: $colorSecondary;
+$colorBtnSecondaryHover: lighten($colorBtnSecondary, 10%);
+$colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
+$colorBtnSecondaryText: {{ settings.color_button_secondary_text }};
+
+$colorBtnTertiary: {{ settings.color_body_bg }};
+$colorBtnTertiaryHover: $colorPrimary;
+$colorBtnTertiaryActive: darken($colorPrimary, 10%);
+$colorBtnTertiaryText: $colorPrimary;
+
+// Text link colors
+$colorLink: $colorPrimary;
+$colorLinkHover: lighten($colorPrimary, 15%);
+
+// Text colors
+$colorTextBody: {{ settings.color_body_text }};
+$colorTopBarText: {{ settings.color_topbar_text }};
+
+// Backgrounds
+$colorBody: {{ settings.color_body_bg }};
+$colorHeader: {{ settings.color_header_bg }};
+$colorTopBar: {{ settings.color_topbar_bg }};
+
+// Border colors
+$colorBorder: {{ settings.color_borders }};
+
+// Nav and dropdown link background
+$colorNavText: {{ settings.color_header_text }};
+
+// Site Footer
+$colorFooterBg: {{ settings.color_header_bg }};
+$colorFooterText: {{ settings.color_footer_text }};
+
+// Helper colors
+$disabledGrey: #f6f6f6;
+$disabledBorder: darken($disabledGrey, 25%);
+$errorRed: #d02e2e;
+$errorRedBg: #fff6f6;
+$successGreen: #56ad6a;
+$successGreenBg: #ecfef0;
+
+// Product review app
+$colorReviewStars: {{ settings.product_reviews_star_color }};
+
+// Password page
+$passwordPageUseBgImage: true;
+
+/*================ Typography variables ================*/
+{% if settings.type_base_family contains 'Google' %}
+  {% assign type_base_parts = settings.type_base_family | split: '_' %}
+  {% assign type_base_name = type_base_parts[1] %}
+  {% capture base_family %}"{{ type_base_name | split: ':' | first | replace: '+', ' ' }}"{% if type_base_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
+{% else %}
+  {% assign base_family = settings.type_base_family %}
+{% endif %}
+
+{% if settings.type_header_family contains 'Google' %}
+  {% assign type_header_parts = settings.type_header_family | split: '_' %}
+  {% assign type_header_name = type_header_parts[1] %}
+  {% capture header_family %}"{{ type_header_name | split: ':' | first | replace: '+', ' ' }}"{% if type_header_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
+  {% assign header_weight = type_header_parts[2] %}
+{% else %}
+  {% assign header_family = settings.type_header_family %}
+  {% assign header_weight = 700 %}
+{% endif %}
+
+// Body Font
+$bodyFontStack: {{ base_family }};
+$baseFontSize: {{ settings.type_base_size }};
+
+// Header Font
+$headerFontStack: {{ header_family }};
+$headerFontWeight: {{ header_weight }};

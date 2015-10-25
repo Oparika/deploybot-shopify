@@ -1,0 +1,134 @@
+.mobile-nav-trigger,
+.mobile-cart-toggle {
+  font-weight: bold;
+
+  .icon {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+    padding-right: 4px;
+  }
+}
+
+.mobile-nav-trigger {
+  display: block;
+  float: left;
+  background: none;
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+
+  .icon {
+    font-size: 1.4em;
+  }
+}
+
+.mobile-cart-toggle {
+  display: block;
+  float: right;
+
+  .header-bar__cart-icon {
+    font-size: 1.4em;
+  }
+
+  .cart-count {
+    &:before {
+      display: inline;
+      content: "(";
+    }
+    &:after {
+      display: inline;
+      content: ")";
+    }
+  }
+}
+
+.mobile-nav {
+  display: none;
+  list-style: none;
+  text-align: left;
+  margin: 0;
+
+  li {
+    margin: 0;
+  }
+}
+
+.mobile-nav__link {
+  display: block;
+  border-top: 1px solid $colorTopBarText;
+  border-color: rgba($colorTopBarText, 0.2);
+
+  /*================ Can't always control anchor markup to add a class ================*/
+  > a {
+    display: block;
+    padding: ($gutter / 2.5) ($gutter / 2);
+    font-size: em(15px);
+    font-family: $headerFontStack;
+    font-weight: $headerFontWeight;
+    text-transform: uppercase;
+
+    @include at-query ($min, $small) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
+}
+
+.mobile-nav__sublist-expand,
+.mobile-nav__sublist-contract {
+  display: inline-block;
+  font-size: 0.6em;
+  vertical-align: middle;
+  margin: -2px 0 0 4px;
+}
+
+.mobile-nav__sublist-contract {
+  display: none;
+}
+
+.mobile-nav__sublist-trigger.is-active {
+  .mobile-nav__sublist-contract {
+    display: inline-block;
+  }
+
+  .mobile-nav__sublist-expand {
+    display: none;
+  }
+}
+
+.mobile-nav__sublist {
+  list-style: none;
+  margin: 0;
+  display: none;
+  background-color: $colorHeader;
+
+  .mobile-nav__sublist {
+    margin-left: $gutter / 2;
+
+    .mobile-nav__sublist-link a {
+      border-top: none;
+    }
+  }
+}
+
+.mobile-nav__sublist-link {
+  a {
+    display: block;
+    padding: ($gutter / 2.5) ($gutter / 2);
+    color: $colorNavText;
+    font-size: em(15px);
+    font-family: $headerFontStack;
+    border-top: 1px solid $colorBorder;
+
+    @include at-query ($min, $small) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+
+    &:hover {
+      opacity: 1;
+      color: $colorPrimary;
+    }
+  }
+}

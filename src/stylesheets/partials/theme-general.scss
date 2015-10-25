@@ -1,0 +1,11 @@
+@if $colorBody == $colorHeader {
+  .main-content {
+    margin-top: 0;
+  }
+}
+
+@if $colorBody == $colorFooterBg {
+  .main-content {
+    padding-bottom: 0;
+  }
+}

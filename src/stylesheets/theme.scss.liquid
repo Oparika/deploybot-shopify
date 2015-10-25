@@ -1,0 +1,33 @@
+/*============================================================================
+  Classic | A theme by Shopify
+  Built on Timber v2.0.0
+==============================================================================*/
+
+/*================ Variables, theme settings, and Sass mixins from Timber ================*/
+@import url('global/mixins.scss');
+@import url('global/variables.scss.liquid');
+
+/*================ Vendor-specific styles ================*/
+@import url('vendor/magnific.scss');
+
+/*================ Theme-specific partials ================*/
+@import url('partials/typography.scss');
+@import url('partials/theme-general.scss');
+
+/*================ Module-specific styles ================*/
+@import url('modules/sidebar-module.scss');
+@import url('modules/header-bar.scss');
+@import url('modules/grid-link.scss');
+@import url('modules/product-reviews.scss');
+@import url('modules/mobile-nav.scss');
+
+{% if settings.slider_home_enable %}
+  @import url('modules/slider.scss.liquid');
+{% endif %}
+
+{% if settings.social_sharing_products or settings.social_sharing_blog %}
+  @import url('modules/social-buttons.scss.liquid');
+{% endif %}
+
+/*================ View-specific styles ================*/
+@import url('templates/password.scss');
