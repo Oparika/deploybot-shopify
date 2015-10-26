@@ -1,0 +1,21 @@
+production:
+  theme_id:
+  access_token: abracadabra
+  store: pokeshop.myshopify.com
+staging:
+  theme_id:
+  access_token: alakazam
+  store: pokeshop-staging.myshopify.com
+development:
+  theme_id: 50376388
+  access_token: 5cc6febbf4abe96c7c5f3e51d413cb31
+  store: nathanpjf-2.myshopify.com
+  ignores:
+  ignore_files:
+    - config/*
+    - "*.png"
+    - "*.jpg"
+  refill_rate: 2
+  bucket_size: 40
+  concurrency: 4
+  proxy: http://localhost:8080
